@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angula
 import { AuthService } from '../services/auth.service'; // Service to handle login API
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -17,16 +18,15 @@ export class LoginComponent {
     password: new FormControl('', [Validators.required]),
   });
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   onSubmit() {
     if (this.loginForm.valid) {
       const loginData = this.loginForm.value;
       this.authService.login(loginData).subscribe(
         (response) => {
-          console.log('Login successful', response);
-          // Handle login success (e.g., store token, navigate to home page)
-          
+          console.log('Login successful', response);          
+          this.router.navigate(['/home']);  
         },
         (error) => {
           console.error('Login failed', error);
