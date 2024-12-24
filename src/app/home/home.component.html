@@ -1,1 +1,31 @@
-<p>home works!</p>
+
+<div class="navbar">
+    <div class="navbar-inner">
+        <p>Time Tracker App</p>
+    <div class="navbar-button">
+        <button>Home</button>
+        <button>Summary</button>
+        <button>Setting</button>
+        <button>Logout</button>
+    </div>
+</div>
+</div>
+<div class="Heading">
+    <h2>Time Tracker App</h2>
+</div>
+
+<div class="search">
+    <h3>Filter Entries</h3>
+    <p-divider />
+    <p>From:</p><p-calendar [(ngModel)]="date" />
+    <p>To:</p><p-calendar [(ngModel)]="date1" />
+</div>
+
+<div class="entry">
+    <h3>Add new Entry</h3>
+    <p-divider />
+    <p>Date:</p><p-calendar [(ngModel)]="date3" />
+    <p>Hours:</p><input type="text" pInputText [(ngModel)]="value" />
+    <p>Notes:</p><textarea rows="5"cols="30" pInputTextarea [(ngModel)]="value1"></textarea>
+    <p-button label="Add" />
+</div>
